@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto; /* Allow horizontal scroll for small screens */
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:first-of-type {
+  background-color: #f44336; /* Red for Reject */
+  color: white;
+}
+
+button:last-of-type {
+  background-color: #4CAF50; /* Green for Verify */
+  color: white;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.Reject {
+  background-color: red !important;
+  width: 33% !important;
+}  
+
+.Pending {
+  background-color: orange !important;
+  width: 33% !important;
+}
+
+.Verify {
+  background-color: #4CAF50 !important;
+  width: 33% !important;
+}
+
+.actions {
+  display: flex;
+  column-gap: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+      display: block; /* Stack elements for smaller screens */
+  }
+
+  thead {
+      display: none; /* Hide the header on small screens */
+  }
+
+  tr {
+      margin-bottom: 15px; /* Add space between rows */
+      border: 1px solid #ddd;
+  }
+
+  td {
+      text-align: right; /* Align text to the right */
+      padding-left: 50%; /* Add padding for labels */
+      position: relative;
+  }
+
+  td::before {
+      content: attr(data-label); /* Use the data-label attribute */
+      position: absolute;
+      left: 10px;
+      width: 40%; /* Label width */
+      padding-right: 10px;
+      text-align: left;
+      font-weight: bold;
+  }
+
+  .actions {
+      flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .Pending,.Reject,.Verify {
+      width: auto !important; /* Make buttons full-width */
+      margin-bottom: 5px; /* Add space between buttons */
+  }
+}
